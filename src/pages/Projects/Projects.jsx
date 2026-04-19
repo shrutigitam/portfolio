@@ -85,27 +85,47 @@ export default function Projects() {
   }, []);
 
   return (
-      <main id="projects" className="bg-black" ref={container}>
-        <section className="text-white w-full bg-slate-950">
-          {projects.map((project, i) => {
-            const targetScale = 1 - (projects.length - i) * 0.05;
-            return (
-              <Card
-                key={`p_${i}`}
-                i={i}
-                url={project.src}
-                title={project.title}
-                color={project.color}
-                description={project.description}
-                progress={scrollYProgress}
-                range={[i * 0.25, 1]}
-                targetScale={targetScale}
-                githubLink={project.githubLink}
-              />
-            );
-          })}
-        </section>
-      </main>
+    <main id="projects" className="bg-black" ref={container}>
+      <section className="pt-32 pb-16 relative z-10 bg-slate-950">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center space-y-6 max-w-4xl mx-auto px-6"
+        >
+          <div className="relative">
+            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 bg-clip-text text-center pb-2">
+              Innovation Gallery
+            </h2>
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-3xl rounded-full" />
+          </div>
+          <p className="text-lg md:text-xl text-gray-400 font-medium tracking-wide text-center leading-relaxed">
+            "A showcase of technical excellence, where data-driven insights meet creative engineering to solve complex challenges."
+          </p>
+        </motion.div>
+      </section>
+
+      <section className="text-white w-full bg-slate-950">
+        {projects.map((project, i) => {
+          const targetScale = 1 - (projects.length - i) * 0.05;
+          return (
+            <Card
+              key={`p_${i}`}
+              i={i}
+              url={project.src}
+              title={project.title}
+              color={project.color}
+              description={project.description}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+              githubLink={project.githubLink}
+            />
+          );
+        })}
+      </section>
+    </main>
   );
 }
 

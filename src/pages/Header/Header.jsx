@@ -7,8 +7,7 @@ import {
   FaGraduationCap,
   FaCode,
   FaEnvelope,
-  FaBars,
-  FaChevronDown
+  FaBars
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
@@ -59,13 +58,6 @@ export default function Header() {
       icon: FaCode,
       text: "Skills",
       path: "/#skills",
-      subMenu: [
-        { name: "Technical", id: "technical-skills" },
-        { name: "ML", id: "machine-learning" },
-        { name: "Data Visualization", id: "visualization-tools" },
-        { name: "AI Tools", id: "ai-tool-expertise" },
-        { name: "Web Tech", id: "web-technologies" }
-      ]
     },
     {
       id: "experience",
@@ -83,7 +75,6 @@ export default function Header() {
     { id: "contact", icon: FaEnvelope, text: "Contact", path: "/#contact" },
   ];
 
-  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -115,8 +106,6 @@ export default function Header() {
                   <div
                     key={id}
                     className="relative group"
-                    onMouseEnter={() => setActiveDropdown(id)}
-                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <Link
                       to={path}
@@ -146,43 +135,7 @@ export default function Header() {
                           }`}
                       />
                       <span className="inline">{text}</span>
-                      {subMenu && (
-                        <FaChevronDown className={`text-[10px] transition-transform duration-300 ${activeDropdown === id ? 'rotate-180' : ''}`} />
-                      )}
                     </Link>
-
-                    {/* Submenu Dropdown */}
-                    {subMenu && (
-                      <div className={`
-                        md:absolute md:top-full md:left-0 md:mt-2 md:w-48
-                        bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden
-                        transition-all duration-300 transform origin-top
-                        ${activeDropdown === id ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
-                        ${isMenuOpen ? 'block' : 'hidden md:block'}
-                      `}>
-                        <div className="py-2">
-                          {subMenu.map((subItem) => (
-                            <Link
-                              key={subItem.id}
-                              to={`/#${subItem.id}`}
-                              onClick={(e) => {
-                                const element = document.getElementById(subItem.id);
-                                if (element) {
-                                  e.preventDefault();
-                                  element.scrollIntoView({ behavior: 'smooth' });
-                                }
-                                setActiveLink('skills');
-                                setIsMenuOpen(false);
-                                setActiveDropdown(null);
-                              }}
-                              className="block px-4 py-2 text-xs text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>

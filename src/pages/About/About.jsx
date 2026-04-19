@@ -96,16 +96,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Scroll indicator to Hero */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10">
-          <span className="text-gray-400 text-sm flex items-center gap-2">
-            <i className="fas fa-mouse text-blue-400"></i>
-            Scroll Down
-          </span>
-          <a href="#hero" className="text-blue-400 text-xl">
-            <i className="fas fa-chevron-down"></i>
-          </a>
-        </div>
+
       </section>
     </>
   );

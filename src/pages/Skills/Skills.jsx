@@ -1,7 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import IconCloudDemo from "@/components/globe";
 import { Code2, PieChart, Database, Cpu, Settings, Globe, BarChart, GitBranch, Sparkles } from "lucide-react";
 import {
   FaPython,
@@ -35,7 +35,7 @@ const SkillCard = ({ icon: Icon, title, skills, color }) => (
         >
           <Icon className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 pb-1">
           {title}
         </h3>
       </div>
@@ -168,15 +168,27 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <main id="skills" className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
+    <main id="skills" className="pt-20 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
-      <section className="container mx-auto px-4 py-11 relative z-10">
-        <div className="flex justify-center items-center ">
-          <IconCloudDemo />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="container mx-auto px-4 py-24 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent pb-4 leading-tight">
+            My Digital Toolkit
+          </h2>
+          <p className="text-gray-300 max-w-4xl mx-auto text-xl md:text-1xl leading-relaxed font-small opacity-90 italic pb-4">
+            "Empowering data-driven decisions with a cutting-edge technical arsenal.""
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillCategories.map((category, index) => (
             <SkillCard
               key={index}
