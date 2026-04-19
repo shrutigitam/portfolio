@@ -14,17 +14,42 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState(() => {
-    const path = location.pathname.substring(1) || "home";
-    return path;
-  });
+  const [activeLink, setActiveLink] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    // Scrollspy Logic
+    const sectionIds = ["hero", "skills", "experience", "education", "projects", "contact"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Adjust these margins to control when a section becomes 'active'
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          setActiveLink(id === "hero" ? "home" : id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      observer.disconnect();
+    };
   }, []);
 
   const navLinks = [
@@ -33,7 +58,7 @@ export default function Header() {
       id: "skills",
       icon: FaCode,
       text: "Skills",
-      path: "/skills",
+      path: "/#skills",
       subMenu: [
         { name: "Technical", id: "technical-skills" },
         { name: "ML", id: "machine-learning" },
@@ -46,16 +71,16 @@ export default function Header() {
       id: "experience",
       icon: FaBriefcase,
       text: "Experience",
-      path: "/experience",
+      path: "/#experience",
     },
     {
       id: "education",
       icon: FaGraduationCap,
       text: "Education",
-      path: "/education",
+      path: "/#education",
     },
-    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/projects" },
-    { id: "contact", icon: FaEnvelope, text: "Contact", path: "/contact" },
+    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/#projects" },
+    { id: "contact", icon: FaEnvelope, text: "Contact", path: "/#contact" },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -95,7 +120,15 @@ export default function Header() {
                   >
                     <Link
                       to={path}
-                      onClick={() => {
+                      onClick={(e) => {
+                        const hash = path.split('#')[1];
+                        if (hash) {
+                          const element = document.getElementById(hash);
+                          if (element) {
+                            e.preventDefault();
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }
                         setActiveLink(id);
                         setIsMenuOpen(false);
                       }}
@@ -131,11 +164,12 @@ export default function Header() {
                           {subMenu.map((subItem) => (
                             <Link
                               key={subItem.id}
-                              to={`/skills#${subItem.id}`}
+                              to={`/#${subItem.id}`}
                               onClick={(e) => {
-                                if (location.pathname === '/skills') {
+                                const element = document.getElementById(subItem.id);
+                                if (element) {
                                   e.preventDefault();
-                                  handleScroll(subItem.id);
+                                  element.scrollIntoView({ behavior: 'smooth' });
                                 }
                                 setActiveLink('skills');
                                 setIsMenuOpen(false);

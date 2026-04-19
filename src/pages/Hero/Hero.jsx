@@ -184,8 +184,67 @@ const profile = {
                   : "",
             }}
           >
-            {/* Left column - Text content */}
-            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
+            {/* Left column - Interactive Icon Cloud */}
+            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInDown relative flex items-center justify-center order-1 lg:order-1">
+              {/* Ambient Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+
+              <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
+                <IconCloud iconSlugs={[
+                  "python",
+                  "pandas",
+                  "numpy",
+                  "scikit-learn",
+                  "tensorflow",
+                  "pytorch",
+                  "keras",
+                  "jupyter",
+                  "openai",
+                  "googlegemini",
+                  "anthropic",
+                  "huggingface",
+                  "perplexity",
+                  "stabilityai",
+                  "mistralai",
+                  "tableau",
+                  "power-bi",
+                  "postgresql",
+                  "plotly",
+                  "amazon-s3",
+                  "google-cloud",
+                  "git",
+                  "github"
+                ]} />
+
+                {/* Floating badges for extra visual interest */}
+                <div className="absolute top-0 right-0 sm:-top-4 sm:-right-4 bg-gray-900/80 backdrop-blur-md border border-blue-500/30 p-3 sm:p-4 rounded-2xl shadow-2xl animate-float-slow hidden sm:block">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                      <i className="fas fa-brain text-blue-400 text-sm sm:text-base"></i>
+                    </div>
+                    <div>
+                      <p className="text-[10px] sm:text-xs text-gray-400">Expertise</p>
+                      <p className="text-xs sm:text-sm font-bold">AI Solutions</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 left-0 sm:-bottom-8 sm:-left-8 bg-gray-900/80 backdrop-blur-md border border-teal-500/30 p-3 sm:p-4 rounded-2xl shadow-2xl animate-float-delayed hidden sm:block">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
+                      <i className="fas fa-chart-line text-teal-400 text-sm sm:text-base"></i>
+                    </div>
+                    <div>
+                      <p className="text-[10px] sm:text-xs text-gray-400">Strategy</p>
+                      <p className="text-xs sm:text-sm font-bold">Data Insights</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right column - Text content */}
+            <div className="w-full lg:w-1/2 animate__animated animate__fadeInUp animate__delay-0.5s relative order-2 lg:order-2">
               {/* Decorative blurs */}
               <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
               <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
@@ -253,68 +312,6 @@ const profile = {
                     </span>
                   </span>
                 </a>
-              </div>
-
-              {/* Floating badges */}
-
-            </div>
-
-            {/* Right column - Interactive Icon Cloud */}
-            <div className="w-full lg:w-1/2 animate__animated animate__fadeInRight animate__delay-0.5s relative flex items-center justify-center">
-              {/* Ambient Background Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-
-              <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
-                <IconCloud iconSlugs={[
-                  "python",
-                  "pandas",
-                  "numpy",
-                  "scikit-learn",
-                  "tensorflow",
-                  "pytorch",
-                  "keras",
-                  "jupyter",
-                  "openai",
-                  "googlegemini",
-                  "anthropic",
-                  "huggingface",
-                  "perplexity",
-                  "stabilityai",
-                  "mistralai",
-                  "tableau",
-                  "power-bi",
-                  "postgresql",
-                  "plotly",
-                  "amazon-s3",
-                  "google-cloud",
-                  "git",
-                  "github"
-                ]} />
-
-                {/* Floating badges for extra visual interest */}
-                <div className="absolute top-0 right-0 sm:-top-4 sm:-right-4 bg-gray-900/80 backdrop-blur-md border border-blue-500/30 p-3 sm:p-4 rounded-2xl shadow-2xl animate-float-slow hidden sm:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                      <i className="fas fa-brain text-blue-400 text-sm sm:text-base"></i>
-                    </div>
-                    <div>
-                      <p className="text-[10px] sm:text-xs text-gray-400">Expertise</p>
-                      <p className="text-xs sm:text-sm font-bold">AI Solutions</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 sm:-bottom-8 sm:-left-8 bg-gray-900/80 backdrop-blur-md border border-teal-500/30 p-3 sm:p-4 rounded-2xl shadow-2xl animate-float-delayed hidden sm:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
-                      <i className="fas fa-chart-line text-teal-400 text-sm sm:text-base"></i>
-                    </div>
-                    <div>
-                      <p className="text-[10px] sm:text-xs text-gray-400">Strategy</p>
-                      <p className="text-xs sm:text-sm font-bold">Data Insights</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

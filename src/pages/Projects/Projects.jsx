@@ -1,4 +1,3 @@
-import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
@@ -86,8 +85,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <ReactLenis root>
-      <main className="bg-black" ref={container}>
+      <main id="projects" className="bg-black" ref={container}>
         <section className="text-white w-full bg-slate-950">
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
@@ -108,7 +106,6 @@ export default function Projects() {
           })}
         </section>
       </main>
-    </ReactLenis>
   );
 }
 

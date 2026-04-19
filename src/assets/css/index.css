@@ -217,6 +217,10 @@ pre[class*="language-"] {
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
 /* Add these classes to adjust the grid colors in the top-left and bottom-right */
 .top-left-grid {
   background-color: white;
