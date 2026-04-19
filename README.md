@@ -1,81 +1,80 @@
-# Portfolio Website - Shruti Singh
+# Shruti Singh | Portfolio
 
-Welcome to my personal portfolio website! I am a Data Analyst and Data Science Postgraduate who is passionate about turning data into actionable insights to solve real-world business problems. 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-This responsive and dynamic portfolio is built using modern web technologies to showcase my projects, skills, and professional journey.
+A modern, high-performance portfolio website built with React, Tailwind CSS, and Framer Motion. This portfolio showcases my expertise as an AI Tool Expert and Data Science Postgraduate, featuring interactive elements, smooth animations, and a responsive design.
 
 ## 🚀 Live Demo
-<!-- Add your live site link here when deployed -->
-[View Live Site](#)
 
-## 🛠️ Tech Stack
-
-- **Framework:** React.js + Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion, Tailwindcss-animate
-- **Icons:** Lucide React, React Icons, FontAwesome
-- **Routing:** React Router v7
-- **Other Utilities:** Radix UI, PrismJS (for code highlighting)
+[Visit Portfolio](https://shruti.digital)
 
 ## ✨ Features
 
-- **Modern & Responsive Design:** Optimized for all screen sizes (desktop, tablet, mobile).
-- **Dynamic Animations:** Engaging entry and scroll animations and interactive UI components.
-- **Interactive UI:** Smooth transitions, floating badges, and interactive particles/meteor effects.
-- **Code Window Snippet:** Unique hero section displaying a functional JavaScript object representing my profile.
-- **Projects Showcase:** Easy-to-navigate section to view all my data analysis and machine learning projects.
-- **Downloadable Resume:** Direct access to my latest CV (`shruti_resume.pdf`).
+- **Dynamic Hero Section**: Interactive code snippets and animated text highlights.
+- **Interactive Icon Cloud**: A 3D floating tag cloud of technical skills.
+- **Smooth Navigation**: One-page scrolling experience with `lenis` and `framer-motion`.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewports.
+- **Dark/Light Mode**: Elegant dark-themed aesthetic by default.
+- **Project Showcase**: Detailed cards for data science and AI projects.
+- **Education & Experience**: Clear timelines of professional and academic journey.
 
-## 👩‍💻 About Me
+## 🛠️ Tech Stack
 
-- **Name:** Shruti Singh
-- **Role:** Data Analyst | Data Science Postgraduate
-- **Core Skills:** Python, R, SQL, Tableau, Power BI, Machine Learning, Excel
-- **GitHub:** [shrutigitam](https://github.com/shrutigitam)
+- **Core**: React.js, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion, GSAP (if used), Animate.css
+- **Components**: Radix UI, Lucide Icons, React Icons
+- **Performance**: Lenis (Smooth Scroll)
+- **Deployment**: Netlify
 
-## ⚙️ Local Development
+## 📁 Project Structure
 
-Follow these steps to run the project locally on your machine.
+```text
+src/
+├── assets/             # Images, Global CSS, and Fonts
+├── components/         # Reusable UI components (Meteors, Sparkles, etc.)
+├── pages/              # Main sections of the portfolio
+│   ├── Hero/           # Landing section with animations
+│   ├── About/          # Personal introduction
+│   ├── Experience/     # Career timeline
+│   ├── Education/      # Academic background
+│   ├── Skills/         # Technical toolkit
+│   ├── Projects/       # Showcase of work
+│   └── Contact/        # Feedback/Get in touch
+└── App.jsx             # Main routing and layout configuration
+```
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or yarn
+## ⚙️ Installation & Setup
 
-### Installation
-
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/shrutigitam/portfolio-main.git
+   git clone https://github.com/shrutigitam/portfolio.git
+   cd portfolio
    ```
 
-2. Navigate to the project directory:
-   ```bash
-   cd portfolio-main
-   ```
-
-3. Install the dependencies:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-4. Start the development server:
+3. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-5. Open your browser and visit `http://localhost:5173`.
-
-## 📦 Build for Production
-
-To build the app for production, run:
-```bash
-npm run build
-```
-This will generate optimized production files in the `dist` directory.
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
 ## 🤝 Contact
 
-Feel free to reach out to me for collaborations, data-related discussions, or any opportunities!
+Shruti Singh - [GitHub](https://github.com/shrutigitam) | [LinkedIn](https://www.linkedin.com/in/shrutisingh7b32b222b/)
 
-- **Email:** [Your Email Address]
-- **LinkedIn:** [Your LinkedIn Profile URL]
+Project Link: [https://github.com/shrutigitam/portfolio](https://github.com/shrutigitam/portfolio)
+
+---
+*If you like this project, feel free to give it a ⭐!*
